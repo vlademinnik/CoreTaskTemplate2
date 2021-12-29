@@ -129,14 +129,16 @@ public class UserDaoJDBCImpl implements UserDao {
         }
         return users;
     }
-        public void cleanUsersTable () {
-        try {connection = Util.getConnection();
+
+    public void cleanUsersTable() {
+        try {
+            connection = Util.getConnection();
             Statement statement = connection.createStatement();
             statement.executeUpdate("TRUNCATE TABLE users_table");
             System.out.println("Таблица очищена");
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (connection != null) {
                 try {
                     connection.close();
@@ -145,5 +147,5 @@ public class UserDaoJDBCImpl implements UserDao {
                 }
             }
         }
-        }
+    }
 }
